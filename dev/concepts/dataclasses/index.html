@@ -3368,7 +3368,8 @@ of a <code>config</code> parameter.</p>
 <p class="admonition-title">Note</p>
 <p>While Pydantic dataclasses support the <a class="autorefs autorefs-internal" href="../../api/config/#pydantic.config.ConfigDict.extra"><code>extra</code></a> configuration value, some default
 behavior of stdlib dataclasses may prevail. For example, any extra fields present on a Pydantic dataclass with
-<a class="autorefs autorefs-internal" href="../../api/config/#pydantic.config.ConfigDict.extra"><code>extra</code></a> set to <code>'allow'</code> are omitted in the dataclass' string representation.</p>
+<a class="autorefs autorefs-internal" href="../../api/config/#pydantic.config.ConfigDict.extra"><code>extra</code></a> set to <code>'allow'</code> are omitted in the dataclass' string representation.
+There is also no way to provide validation <a href="../models/#extra-data">using the <code>__pydantic_extra__</code> attribute</a>.</p>
 </div>
 <h2 id="rebuilding-dataclass-schema">Rebuilding dataclass schema<a class="headerlink" href="#rebuilding-dataclass-schema" title="Permanent link">&para;</a></h2>
 <p>The <a class="autorefs autorefs-internal" href="../../api/dataclasses/#pydantic.dataclasses.rebuild_dataclass"><code>rebuild_dataclass()</code></a> can be used to rebuild the core schema of the dataclass.
@@ -3719,7 +3720,7 @@ be called between the calls to <em>before</em> and <em>after</em> model validato
                 
   <script src="/flarelytics/client.js"></script>
       <script>
-    window.mkdocs_run_deps = ["pydantic==2.10.4", "pydantic-core==2.27.2", "pydantic-extra-types==2.10.0"]
+    window.mkdocs_run_deps = ["pydantic==2.10.5", "pydantic-core==2.27.2", "pydantic-extra-types==2.10.0"]
     </script>
 
               </article>
