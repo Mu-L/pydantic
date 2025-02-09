@@ -12,7 +12,7 @@ Pydantic
 
 [![license](https://img.shields.io/github/license/pydantic/pydantic.svg)](https://github.com/pydantic/pydantic/blob/main/LICENSE)
 
-Documentation for development version: [e354fd4](https://github.com/pydantic/pydantic/commit/e354fd431d2512e3670c8a3740ed03d69ee3465f).
+Documentation for development version: [044d685](https://github.com/pydantic/pydantic/commit/044d685765a4d208addaf2edd580317b15edc1d2).
 
 Pydantic is the most widely used data validation library for Python.
 
@@ -6047,58 +6047,58 @@ At the time of writing there are 466,400 repositories on GitHub and 8,119 packag
 
 Some notable libraries that depend on Pydantic:
 
-* [`huggingface/transformers`](https://github.com/huggingface/transformers) 107,475 stars
-* [`tiangolo/fastapi`](https://github.com/tiangolo/fastapi) 60,355 stars
-* [`hwchase17/langchain`](https://github.com/hwchase17/langchain) 54,514 stars
-* [`apache/airflow`](https://github.com/apache/airflow) 30,955 stars
-* [`microsoft/DeepSpeed`](https://github.com/microsoft/DeepSpeed) 26,908 stars
-* [`ray-project/ray`](https://github.com/ray-project/ray) 26,600 stars
-* [`lm-sys/FastChat`](https://github.com/lm-sys/FastChat) 24,924 stars
-* [`Lightning-AI/lightning`](https://github.com/Lightning-AI/lightning) 24,034 stars
-* [`OpenBB-finance/OpenBBTerminal`](https://github.com/OpenBB-finance/OpenBBTerminal) 22,785 stars
-* [`gradio-app/gradio`](https://github.com/gradio-app/gradio) 19,726 stars
-* [`pola-rs/polars`](https://github.com/pola-rs/polars) 18,587 stars
-* [`mindsdb/mindsdb`](https://github.com/mindsdb/mindsdb) 17,242 stars
-* [`RasaHQ/rasa`](https://github.com/RasaHQ/rasa) 16,695 stars
-* [`mlflow/mlflow`](https://github.com/mlflow/mlflow) 14,780 stars
-* [`heartexlabs/label-studio`](https://github.com/heartexlabs/label-studio) 13,634 stars
-* [`spotDL/spotify-downloader`](https://github.com/spotDL/spotify-downloader) 12,124 stars
-* [`Sanster/lama-cleaner`](https://github.com/Sanster/lama-cleaner) 12,075 stars
-* [`airbytehq/airbyte`](https://github.com/airbytehq/airbyte) 11,174 stars
-* [`openai/evals`](https://github.com/openai/evals) 11,110 stars
-* [`matrix-org/synapse`](https://github.com/matrix-org/synapse) 11,071 stars
-* [`ydataai/ydata-profiling`](https://github.com/ydataai/ydata-profiling) 10,884 stars
-* [`pyodide/pyodide`](https://github.com/pyodide/pyodide) 10,245 stars
-* [`tiangolo/sqlmodel`](https://github.com/tiangolo/sqlmodel) 10,160 stars
-* [`lucidrains/DALLE2-pytorch`](https://github.com/lucidrains/DALLE2-pytorch) 9,916 stars
-* [`pynecone-io/reflex`](https://github.com/pynecone-io/reflex) 9,679 stars
-* [`PaddlePaddle/PaddleNLP`](https://github.com/PaddlePaddle/PaddleNLP) 9,663 stars
-* [`aws/serverless-application-model`](https://github.com/aws/serverless-application-model) 9,061 stars
-* [`modin-project/modin`](https://github.com/modin-project/modin) 8,808 stars
-* [`great-expectations/great_expectations`](https://github.com/great-expectations/great_expectations) 8,613 stars
-* [`dagster-io/dagster`](https://github.com/dagster-io/dagster) 7,908 stars
-* [`NVlabs/SPADE`](https://github.com/NVlabs/SPADE) 7,407 stars
-* [`brycedrennan/imaginAIry`](https://github.com/brycedrennan/imaginAIry) 7,217 stars
-* [`chroma-core/chroma`](https://github.com/chroma-core/chroma) 7,127 stars
-* [`lucidrains/imagen-pytorch`](https://github.com/lucidrains/imagen-pytorch) 7,089 stars
-* [`sqlfluff/sqlfluff`](https://github.com/sqlfluff/sqlfluff) 6,278 stars
-* [`deeppavlov/DeepPavlov`](https://github.com/deeppavlov/DeepPavlov) 6,278 stars
-* [`autogluon/autogluon`](https://github.com/autogluon/autogluon) 5,966 stars
-* [`bridgecrewio/checkov`](https://github.com/bridgecrewio/checkov) 5,747 stars
-* [`bentoml/BentoML`](https://github.com/bentoml/BentoML) 5,275 stars
-* [`replicate/cog`](https://github.com/replicate/cog) 5,089 stars
-* [`vitalik/django-ninja`](https://github.com/vitalik/django-ninja) 4,623 stars
-* [`apache/iceberg`](https://github.com/apache/iceberg) 4,479 stars
-* [`jina-ai/discoart`](https://github.com/jina-ai/discoart) 3,820 stars
-* [`embedchain/embedchain`](https://github.com/embedchain/embedchain) 3,493 stars
-* [`skypilot-org/skypilot`](https://github.com/skypilot-org/skypilot) 3,052 stars
-* [`PrefectHQ/marvin`](https://github.com/PrefectHQ/marvin) 2,985 stars
-* [`microsoft/FLAML`](https://github.com/microsoft/FLAML) 2,569 stars
-* [`docarray/docarray`](https://github.com/docarray/docarray) 2,353 stars
-* [`aws-powertools/powertools-lambda-python`](https://github.com/aws-powertools/powertools-lambda-python) 2,198 stars
-* [`NVIDIA/NeMo-Guardrails`](https://github.com/NVIDIA/NeMo-Guardrails) 1,830 stars
-* [`roman-right/beanie`](https://github.com/roman-right/beanie) 1,299 stars
-* [`art049/odmantic`](https://github.com/art049/odmantic) 807 stars
+* [`huggingface/transformers`](https://github.com/huggingface/transformers) 138,570 stars
+* [`hwchase17/langchain`](https://github.com/hwchase17/langchain) 99,542 stars
+* [`tiangolo/fastapi`](https://github.com/tiangolo/fastapi) 80,497 stars
+* [`apache/airflow`](https://github.com/apache/airflow) 38,577 stars
+* [`lm-sys/FastChat`](https://github.com/lm-sys/FastChat) 37,650 stars
+* [`microsoft/DeepSpeed`](https://github.com/microsoft/DeepSpeed) 36,521 stars
+* [`OpenBB-finance/OpenBBTerminal`](https://github.com/OpenBB-finance/OpenBBTerminal) 35,971 stars
+* [`gradio-app/gradio`](https://github.com/gradio-app/gradio) 35,740 stars
+* [`ray-project/ray`](https://github.com/ray-project/ray) 35,176 stars
+* [`pola-rs/polars`](https://github.com/pola-rs/polars) 31,698 stars
+* [`Lightning-AI/lightning`](https://github.com/Lightning-AI/lightning) 28,902 stars
+* [`mindsdb/mindsdb`](https://github.com/mindsdb/mindsdb) 27,141 stars
+* [`embedchain/embedchain`](https://github.com/embedchain/embedchain) 24,379 stars
+* [`pynecone-io/reflex`](https://github.com/pynecone-io/reflex) 21,558 stars
+* [`heartexlabs/label-studio`](https://github.com/heartexlabs/label-studio) 20,571 stars
+* [`Sanster/lama-cleaner`](https://github.com/Sanster/lama-cleaner) 20,313 stars
+* [`mlflow/mlflow`](https://github.com/mlflow/mlflow) 19,393 stars
+* [`RasaHQ/rasa`](https://github.com/RasaHQ/rasa) 19,337 stars
+* [`spotDL/spotify-downloader`](https://github.com/spotDL/spotify-downloader) 18,604 stars
+* [`chroma-core/chroma`](https://github.com/chroma-core/chroma) 17,393 stars
+* [`airbytehq/airbyte`](https://github.com/airbytehq/airbyte) 17,120 stars
+* [`openai/evals`](https://github.com/openai/evals) 15,437 stars
+* [`tiangolo/sqlmodel`](https://github.com/tiangolo/sqlmodel) 15,127 stars
+* [`ydataai/ydata-profiling`](https://github.com/ydataai/ydata-profiling) 12,687 stars
+* [`pyodide/pyodide`](https://github.com/pyodide/pyodide) 12,653 stars
+* [`dagster-io/dagster`](https://github.com/dagster-io/dagster) 12,440 stars
+* [`PaddlePaddle/PaddleNLP`](https://github.com/PaddlePaddle/PaddleNLP) 12,312 stars
+* [`matrix-org/synapse`](https://github.com/matrix-org/synapse) 11,857 stars
+* [`lucidrains/DALLE2-pytorch`](https://github.com/lucidrains/DALLE2-pytorch) 11,207 stars
+* [`great-expectations/great_expectations`](https://github.com/great-expectations/great_expectations) 10,164 stars
+* [`modin-project/modin`](https://github.com/modin-project/modin) 10,002 stars
+* [`aws/serverless-application-model`](https://github.com/aws/serverless-application-model) 9,402 stars
+* [`sqlfluff/sqlfluff`](https://github.com/sqlfluff/sqlfluff) 8,535 stars
+* [`replicate/cog`](https://github.com/replicate/cog) 8,344 stars
+* [`autogluon/autogluon`](https://github.com/autogluon/autogluon) 8,326 stars
+* [`lucidrains/imagen-pytorch`](https://github.com/lucidrains/imagen-pytorch) 8,164 stars
+* [`brycedrennan/imaginAIry`](https://github.com/brycedrennan/imaginAIry) 8,050 stars
+* [`vitalik/django-ninja`](https://github.com/vitalik/django-ninja) 7,685 stars
+* [`NVlabs/SPADE`](https://github.com/NVlabs/SPADE) 7,632 stars
+* [`bridgecrewio/checkov`](https://github.com/bridgecrewio/checkov) 7,340 stars
+* [`bentoml/BentoML`](https://github.com/bentoml/BentoML) 7,322 stars
+* [`skypilot-org/skypilot`](https://github.com/skypilot-org/skypilot) 7,113 stars
+* [`apache/iceberg`](https://github.com/apache/iceberg) 6,853 stars
+* [`deeppavlov/DeepPavlov`](https://github.com/deeppavlov/DeepPavlov) 6,777 stars
+* [`PrefectHQ/marvin`](https://github.com/PrefectHQ/marvin) 5,454 stars
+* [`NVIDIA/NeMo-Guardrails`](https://github.com/NVIDIA/NeMo-Guardrails) 4,383 stars
+* [`microsoft/FLAML`](https://github.com/microsoft/FLAML) 4,035 stars
+* [`jina-ai/discoart`](https://github.com/jina-ai/discoart) 3,846 stars
+* [`docarray/docarray`](https://github.com/docarray/docarray) 3,007 stars
+* [`aws-powertools/powertools-lambda-python`](https://github.com/aws-powertools/powertools-lambda-python) 2,980 stars
+* [`roman-right/beanie`](https://github.com/roman-right/beanie) 2,172 stars
+* [`art049/odmantic`](https://github.com/art049/odmantic) 1,096 stars
 
 More libraries using Pydantic can be found at [`Kludex/awesome-pydantic`](https://github.com/Kludex/awesome-pydantic).
 
@@ -7082,6 +7082,7 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
         exclude_none: bool = False,
         round_trip: bool = False,
         warnings: bool | Literal['none', 'warn', 'error'] = True,
+        fallback: Callable[[Any], Any] | None = None,
         serialize_as_any: bool = False,
     ) -> dict[str, Any]:
         """!!! abstract "Usage Documentation"
@@ -7103,6 +7104,8 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
             round_trip: If True, dumped values should be valid as input for non-idempotent types such as Json[T].
             warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
                 "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+            fallback: A function to call when an unknown value is encountered. If not provided,
+                a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
             serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.
 
         Returns:
@@ -7120,6 +7123,7 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
             exclude_none=exclude_none,
             round_trip=round_trip,
             warnings=warnings,
+            fallback=fallback,
             serialize_as_any=serialize_as_any,
         )
 
@@ -7136,6 +7140,7 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
         exclude_none: bool = False,
         round_trip: bool = False,
         warnings: bool | Literal['none', 'warn', 'error'] = True,
+        fallback: Callable[[Any], Any] | None = None,
         serialize_as_any: bool = False,
     ) -> str:
         """!!! abstract "Usage Documentation"
@@ -7155,6 +7160,8 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
             round_trip: If True, dumped values should be valid as input for non-idempotent types such as Json[T].
             warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
                 "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+            fallback: A function to call when an unknown value is encountered. If not provided,
+                a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
             serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.
 
         Returns:
@@ -7172,6 +7179,7 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
             exclude_none=exclude_none,
             round_trip=round_trip,
             warnings=warnings,
+            fallback=fallback,
             serialize_as_any=serialize_as_any,
         ).decode()
 
@@ -8596,6 +8604,7 @@ model_dump(
     warnings: (
         bool | Literal["none", "warn", "error"]
     ) = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False
 ) -> dict[str, Any]
 
@@ -8621,6 +8630,7 @@ Parameters:
 | `exclude_none` | `bool` | Whether to exclude fields that have a value of `None`. | `False` |
 | `round_trip` | `bool` | If True, dumped values should be valid as input for non-idempotent types such as Json[T]. | `False` |
 | `warnings` | `bool | Literal['none', 'warn', 'error']` | How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors, "error" raises a `PydanticSerializationError`. | `True` |
+| `fallback` | `Callable[[Any], Any] | None` | A function to call when an unknown value is encountered. If not provided, a `PydanticSerializationError` error is raised. | `None` |
 | `serialize_as_any` | `bool` | Whether to serialize fields with duck-typing serialization behavior. | `False` |
 
 Returns:
@@ -8644,6 +8654,7 @@ def model_dump(
     exclude_none: bool = False,
     round_trip: bool = False,
     warnings: bool | Literal['none', 'warn', 'error'] = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False,
 ) -> dict[str, Any]:
     """!!! abstract "Usage Documentation"
@@ -8665,6 +8676,8 @@ def model_dump(
         round_trip: If True, dumped values should be valid as input for non-idempotent types such as Json[T].
         warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
             "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+        fallback: A function to call when an unknown value is encountered. If not provided,
+            a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
         serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.
 
     Returns:
@@ -8682,6 +8695,7 @@ def model_dump(
         exclude_none=exclude_none,
         round_trip=round_trip,
         warnings=warnings,
+        fallback=fallback,
         serialize_as_any=serialize_as_any,
     )
 
@@ -8707,6 +8721,7 @@ model_dump_json(
     warnings: (
         bool | Literal["none", "warn", "error"]
     ) = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False
 ) -> str
 
@@ -8732,6 +8747,7 @@ Parameters:
 | `exclude_none` | `bool` | Whether to exclude fields that have a value of `None`. | `False` |
 | `round_trip` | `bool` | If True, dumped values should be valid as input for non-idempotent types such as Json[T]. | `False` |
 | `warnings` | `bool | Literal['none', 'warn', 'error']` | How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors, "error" raises a `PydanticSerializationError`. | `True` |
+| `fallback` | `Callable[[Any], Any] | None` | A function to call when an unknown value is encountered. If not provided, a `PydanticSerializationError` error is raised. | `None` |
 | `serialize_as_any` | `bool` | Whether to serialize fields with duck-typing serialization behavior. | `False` |
 
 Returns:
@@ -8755,6 +8771,7 @@ def model_dump_json(
     exclude_none: bool = False,
     round_trip: bool = False,
     warnings: bool | Literal['none', 'warn', 'error'] = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False,
 ) -> str:
     """!!! abstract "Usage Documentation"
@@ -8774,6 +8791,8 @@ def model_dump_json(
         round_trip: If True, dumped values should be valid as input for non-idempotent types such as Json[T].
         warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
             "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+        fallback: A function to call when an unknown value is encountered. If not provided,
+            a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
         serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.
 
     Returns:
@@ -8791,6 +8810,7 @@ def model_dump_json(
         exclude_none=exclude_none,
         round_trip=round_trip,
         warnings=warnings,
+        fallback=fallback,
         serialize_as_any=serialize_as_any,
     ).decode()
 
@@ -13472,7 +13492,7 @@ def rebuild_annotation(self) -> Any:
 
 ```
 apply_typevars_map(
-    typevars_map: dict[Any, Any] | None,
+    typevars_map: Mapping[TypeVar, Any] | None,
     globalns: GlobalsNamespace | None = None,
     localns: MappingNamespace | None = None,
 ) -> None
@@ -13489,7 +13509,7 @@ Parameters:
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| `typevars_map` | `dict[Any, Any] | None` | A dictionary mapping type variables to their concrete types. | *required* |
+| `typevars_map` | `Mapping[TypeVar, Any] | None` | A dictionary mapping type variables to their concrete types. | *required* |
 | `globalns` | `GlobalsNamespace | None` | The globals namespace to use during type annotation evaluation. | `None` |
 | `localns` | `MappingNamespace | None` | The locals namespace to use during type annotation evaluation. | `None` |
 
@@ -13503,7 +13523,7 @@ Source code in `pydantic/fields.py`
 ```
 def apply_typevars_map(
     self,
-    typevars_map: dict[Any, Any] | None,
+    typevars_map: Mapping[TypeVar, Any] | None,
     globalns: GlobalsNamespace | None = None,
     localns: MappingNamespace | None = None,
 ) -> None:
@@ -17400,11 +17420,13 @@ def dict_schema(self, schema: core_schema.DictSchema) -> JsonSchemaValue:
     # don't give a title to additionalProperties:
     values_schema.pop('title', None)
 
-    if values_schema or keys_pattern is not None:  # don't add additionalProperties if it's empty
+    if values_schema or keys_pattern is not None:
         if keys_pattern is None:
             json_schema['additionalProperties'] = values_schema
         else:
             json_schema['patternProperties'] = {keys_pattern: values_schema}
+    else:  # for `dict[str, Any]`, we allow any key and any value, since `str` is the default key type
+        json_schema['additionalProperties'] = True
 
     if (
         # The len check indicates that constraints are probably present:
@@ -35550,6 +35572,7 @@ dump_python(
     warnings: (
         bool | Literal["none", "warn", "error"]
     ) = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False,
     context: dict[str, Any] | None = None,
 ) -> Any
@@ -35572,6 +35595,7 @@ Parameters:
 | `exclude_none` | `bool` | Whether to exclude fields with None values. | `False` |
 | `round_trip` | `bool` | Whether to output the serialized data in a way that is compatible with deserialization. | `False` |
 | `warnings` | `bool | Literal['none', 'warn', 'error']` | How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors, "error" raises a `PydanticSerializationError`. | `True` |
+| `fallback` | `Callable[[Any], Any] | None` | A function to call when an unknown value is encountered. If not provided, a `PydanticSerializationError` error is raised. | `None` |
 | `serialize_as_any` | `bool` | Whether to serialize fields with duck-typing serialization behavior. | `False` |
 | `context` | `dict[str, Any] | None` | Additional context to pass to the serializer. | `None` |
 
@@ -35597,6 +35621,7 @@ def dump_python(
     exclude_none: bool = False,
     round_trip: bool = False,
     warnings: bool | Literal['none', 'warn', 'error'] = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False,
     context: dict[str, Any] | None = None,
 ) -> Any:
@@ -35614,6 +35639,8 @@ def dump_python(
         round_trip: Whether to output the serialized data in a way that is compatible with deserialization.
         warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
             "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+        fallback: A function to call when an unknown value is encountered. If not provided,
+            a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
         serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.
         context: Additional context to pass to the serializer.
 
@@ -35631,6 +35658,7 @@ def dump_python(
         exclude_none=exclude_none,
         round_trip=round_trip,
         warnings=warnings,
+        fallback=fallback,
         serialize_as_any=serialize_as_any,
         context=context,
     )
@@ -35659,6 +35687,7 @@ dump_json(
     warnings: (
         bool | Literal["none", "warn", "error"]
     ) = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False,
     context: dict[str, Any] | None = None,
 ) -> bytes
@@ -35685,6 +35714,7 @@ Parameters:
 | `exclude_none` | `bool` | Whether to exclude fields with a value of `None`. | `False` |
 | `round_trip` | `bool` | Whether to serialize and deserialize the instance to ensure round-tripping. | `False` |
 | `warnings` | `bool | Literal['none', 'warn', 'error']` | How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors, "error" raises a `PydanticSerializationError`. | `True` |
+| `fallback` | `Callable[[Any], Any] | None` | A function to call when an unknown value is encountered. If not provided, a `PydanticSerializationError` error is raised. | `None` |
 | `serialize_as_any` | `bool` | Whether to serialize fields with duck-typing serialization behavior. | `False` |
 | `context` | `dict[str, Any] | None` | Additional context to pass to the serializer. | `None` |
 
@@ -35710,6 +35740,7 @@ def dump_json(
     exclude_none: bool = False,
     round_trip: bool = False,
     warnings: bool | Literal['none', 'warn', 'error'] = True,
+    fallback: Callable[[Any], Any] | None = None,
     serialize_as_any: bool = False,
     context: dict[str, Any] | None = None,
 ) -> bytes:
@@ -35730,6 +35761,8 @@ def dump_json(
         round_trip: Whether to serialize and deserialize the instance to ensure round-tripping.
         warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
             "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+        fallback: A function to call when an unknown value is encountered. If not provided,
+            a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
         serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.
         context: Additional context to pass to the serializer.
 
@@ -35747,6 +35780,7 @@ def dump_json(
         exclude_none=exclude_none,
         round_trip=round_trip,
         warnings=warnings,
+        fallback=fallback,
         serialize_as_any=serialize_as_any,
         context=context,
     )
