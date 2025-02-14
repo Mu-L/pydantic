@@ -12,7 +12,7 @@ Pydantic
 
 [![license](https://img.shields.io/github/license/pydantic/pydantic.svg)](https://github.com/pydantic/pydantic/blob/main/LICENSE)
 
-Documentation for development version: [5aa6d91](https://github.com/pydantic/pydantic/commit/5aa6d914963af4e86d10c0e8e49ce64f98f4d64d).
+Documentation for development version: [72c77bf](https://github.com/pydantic/pydantic/commit/72c77bfff341b447b26f0d129aa0d5134da3037b).
 
 Pydantic is the most widely used data validation library for Python.
 
@@ -271,6 +271,44 @@ For a more comprehensive list of open-source projects using Pydantic see the
 [list of dependents on github](https://github.com/pydantic/pydantic/network/dependents), or you can find some awesome projects using Pydantic in [awesome-pydantic](https://github.com/Kludex/awesome-pydantic).
 
 
+
+v2.11.0a2 (2025-02-10)
+----------------------
+
+ [GitHub release](https://github.com/pydantic/pydantic/releases/tag/v2.11.0a2)
+
+### What's Changed
+
+Pydantic v2.11 is a version strongly focused on build time performance of Pydantic models (and core schema generation in general).
+This is another early alpha release, meant to collect early feedback from users having issues with core schema builds.
+
+#### Packaging
+
+* Bump `ruff` from 0.9.2 to 0.9.5 by [@Viicos](https://github.com/Viicos) in [#11407](https://github.com/pydantic/pydantic/pull/11407)
+* Bump `pydantic-core` to v2.29.0 by [@mikeedjones](https://github.com/mikeedjones) in [#11402](https://github.com/pydantic/pydantic/pull/11402)
+* Use locally-built rust with symbols & pgo by [@davidhewitt](https://github.com/davidhewitt) in [#11403](https://github.com/pydantic/pydantic/pull/11403)
+
+#### Performance
+
+* Create a single dictionary when creating a `CoreConfig` instance by [@sydney-runkle](https://github.com/sydney-runkle) in [#11384](https://github.com/pydantic/pydantic/pull/11384)
+
+#### Fixes
+
+* Use the correct JSON Schema mode when handling function schemas by [@Viicos](https://github.com/Viicos) in [#11367](https://github.com/pydantic/pydantic/pull/11367)
+* Fix JSON Schema reference logic with `examples` keys by [@Viicos](https://github.com/Viicos) in [#11366](https://github.com/pydantic/pydantic/pull/11366)
+* Improve exception message when encountering recursion errors during type evaluation by [@Viicos](https://github.com/Viicos) in [#11356](https://github.com/pydantic/pydantic/pull/11356)
+* Always include `additionalProperties: True` for arbitrary dictionary schemas by [@austinyu](https://github.com/austinyu) in [#11392](https://github.com/pydantic/pydantic/pull/11392)
+* Expose `fallback` parameter in serialization methods by [@Viicos](https://github.com/Viicos) in [#11398](https://github.com/pydantic/pydantic/pull/11398)
+* Fix path serialization behavior by [@sydney-runkle](https://github.com/sydney-runkle) in [#11416](https://github.com/pydantic/pydantic/pull/11416)
+
+### New Contributors
+
+* [@kauabh](https://github.com/kauabh) made their first contribution in [#11369](https://github.com/pydantic/pydantic/pull/11369)
+* [@jaceklaskowski](https://github.com/jaceklaskowski) made their first contribution in [#11353](https://github.com/pydantic/pydantic/pull/11353)
+* [@tmpbeing](https://github.com/tmpbeing) made their first contribution in [#11375](https://github.com/pydantic/pydantic/pull/11375)
+* [@petyosi](https://github.com/petyosi) made their first contribution in [#11405](https://github.com/pydantic/pydantic/pull/11405)
+* [@austinyu](https://github.com/austinyu) made their first contribution in [#11392](https://github.com/pydantic/pydantic/pull/11392)
+* [@mikeedjones](https://github.com/mikeedjones) made their first contribution in [#11402](https://github.com/pydantic/pydantic/pull/11402)
 
 v2.11.0a1 (2025-01-30)
 ----------------------
@@ -7267,8 +7305,13 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
         if not force and cls.__pydantic_complete__:
             return None
 
-        if '__pydantic_core_schema__' in cls.__dict__:
-            delattr(cls, '__pydantic_core_schema__')  # delete cached value to ensure full rebuild happens
+        for attr in ('__pydantic_core_schema__', '__pydantic_validator__', '__pydantic_serializer__'):
+            if attr in cls.__dict__:
+                # Deleting the validator/serializer is necessary as otherwise they can get reused in
+                # pydantic-core. Same applies for the core schema that can be reused in schema generation.
+                delattr(cls, attr)
+
+        cls.__pydantic_complete__ = False
 
         if _types_namespace is not None:
             rebuild_ns = _types_namespace
@@ -7283,11 +7326,29 @@ class BaseModel(metaclass=_model_construction.ModelMetaclass):
             parent_namespace={**rebuild_ns, **parent_ns},
         )
 
-        # manually override defer_build so complete_model_class doesn't skip building the model again
-        config = {**cls.model_config, 'defer_build': False}
+        if not cls.__pydantic_fields_complete__:
+            typevars_map = _generics.get_model_typevars_map(cls)
+            try:
+                cls.__pydantic_fields__ = _fields.rebuild_model_fields(
+                    cls,
+                    ns_resolver=ns_resolver,
+                    typevars_map=typevars_map,
+                )
+            except NameError as e:
+                exc = PydanticUndefinedAnnotation.from_name_error(e)
+                _mock_val_ser.set_model_mocks(cls, f'`{exc.name}`')
+                if raise_errors:
+                    raise exc from e
+
+            if not raise_errors and not cls.__pydantic_fields_complete__:
+                # No need to continue with schema gen, it is guaranteed to fail
+                return False
+
+            assert cls.__pydantic_fields_complete__
+
         return _model_construction.complete_model_class(
             cls,
-            _config.ConfigWrapper(config, check=False),
+            _config.ConfigWrapper(cls.model_config, check=False),
             raise_errors=raise_errors,
             ns_resolver=ns_resolver,
         )
@@ -9032,8 +9093,13 @@ def model_rebuild(
     if not force and cls.__pydantic_complete__:
         return None
 
-    if '__pydantic_core_schema__' in cls.__dict__:
-        delattr(cls, '__pydantic_core_schema__')  # delete cached value to ensure full rebuild happens
+    for attr in ('__pydantic_core_schema__', '__pydantic_validator__', '__pydantic_serializer__'):
+        if attr in cls.__dict__:
+            # Deleting the validator/serializer is necessary as otherwise they can get reused in
+            # pydantic-core. Same applies for the core schema that can be reused in schema generation.
+            delattr(cls, attr)
+
+    cls.__pydantic_complete__ = False
 
     if _types_namespace is not None:
         rebuild_ns = _types_namespace
@@ -9048,11 +9114,29 @@ def model_rebuild(
         parent_namespace={**rebuild_ns, **parent_ns},
     )
 
-    # manually override defer_build so complete_model_class doesn't skip building the model again
-    config = {**cls.model_config, 'defer_build': False}
+    if not cls.__pydantic_fields_complete__:
+        typevars_map = _generics.get_model_typevars_map(cls)
+        try:
+            cls.__pydantic_fields__ = _fields.rebuild_model_fields(
+                cls,
+                ns_resolver=ns_resolver,
+                typevars_map=typevars_map,
+            )
+        except NameError as e:
+            exc = PydanticUndefinedAnnotation.from_name_error(e)
+            _mock_val_ser.set_model_mocks(cls, f'`{exc.name}`')
+            if raise_errors:
+                raise exc from e
+
+        if not raise_errors and not cls.__pydantic_fields_complete__:
+            # No need to continue with schema gen, it is guaranteed to fail
+            return False
+
+        assert cls.__pydantic_fields_complete__
+
     return _model_construction.complete_model_class(
         cls,
-        _config.ConfigWrapper(config, check=False),
+        _config.ConfigWrapper(cls.model_config, check=False),
         raise_errors=raise_errors,
         ns_resolver=ns_resolver,
     )
@@ -11104,7 +11188,7 @@ dataclass(
  
 ```
 dataclass(
-    _cls: type[_T" optional hover>_T] | None = None,
+    _cls: type[_T] | None = None,
     *,
     init: Literal[False] = False,
     repr: bool = True,
@@ -11424,8 +11508,13 @@ def rebuild_dataclass(
     if not force and cls.__pydantic_complete__:
         return None
 
-    if '__pydantic_core_schema__' in cls.__dict__:
-        delattr(cls, '__pydantic_core_schema__')  # delete cached value to ensure full rebuild happens
+    for attr in ('__pydantic_core_schema__', '__pydantic_validator__', '__pydantic_serializer__'):
+        if attr in cls.__dict__:
+            # Deleting the validator/serializer is necessary as otherwise they can get reused in
+            # pycantic-core. Same applies for the core schema that can be reused in schema generation.
+            delattr(cls, attr)
+
+    cls.__pydantic_complete__ = False
 
     if _types_namespace is not None:
         rebuild_ns = _types_namespace
@@ -12293,7 +12382,7 @@ Field(
 ```
 ```
 Field(
-    default: _T,
+    default: _T" optional hover>_T,
     *,
     alias: str | None = _Unset,
     alias_priority: int | None = _Unset,
@@ -12821,14 +12910,10 @@ def __init__(self, **kwargs: Unpack[_FieldInfoInputs]) -> None:
     self._attributes_set = {k: v for k, v in kwargs.items() if v is not _Unset}
     kwargs = {k: _DefaultValues.get(k) if v is _Unset else v for k, v in kwargs.items()}  # type: ignore
     self.annotation = kwargs.get('annotation')
-    self.evaluated = False
 
     default = kwargs.pop('default', PydanticUndefined)
     if default is Ellipsis:
         self.default = PydanticUndefined
-        # Also remove it from the attributes set, otherwise
-        # `GenerateSchema._common_field_schema` mistakenly
-        # uses it:
         self._attributes_set.pop('default', None)
     else:
         self.default = default
@@ -12861,6 +12946,11 @@ def __init__(self, **kwargs: Unpack[_FieldInfoInputs]) -> None:
     self.kw_only = kwargs.pop('kw_only', None)
 
     self.metadata = self._collect_metadata(kwargs)  # type: ignore
+
+    # Private attributes, used to rebuild FieldInfo instances:
+    self._complete = True
+    self._original_annotation: Any = PydanticUndefined
+    self._original_assignment: Any = PydanticUndefined
 
 ```
 
@@ -49795,6 +49885,60 @@ print(Settings().model_dump())
 
 `env_nested_delimiter` can be configured via the `model_config` as shown above, or via the
 `_env_nested_delimiter` keyword argument on instantiation.
+
+By default environment variables are split by `env_nested_delimiter` into arbitrarily deep nested fields. You can limit
+the depth of the nested fields with the `env_nested_max_split` config setting. A common use case this is particularly useful
+is for two-level deep settings, where the `env_nested_delimiter` (usually a single `_`) may be a substring of model
+field names. For example:
+
+```
+# your environment
+export GENERATION_LLM_PROVIDER='anthropic'
+export GENERATION_LLM_API_KEY='your-api-key'
+export GENERATION_LLM_API_VERSION='2024-03-15'
+
+```
+
+You could load them into the following settings model:
+
+```
+from pydantic import BaseModel
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class LLMConfig(BaseModel):
+    provider: str = 'openai'
+    api_key: str
+    api_type: str = 'azure'
+    api_version: str = '2023-03-15-preview'
+
+
+class GenerationConfig(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_nested_delimiter='_', env_nested_max_split=1, env_prefix='GENERATION_'
+    )
+
+    llm: LLMConfig
+    ...
+
+
+print(GenerationConfig().model_dump())
+"""
+{
+    'llm': {
+        'provider': 'anthropic',
+        'api_key': 'your-api-key',
+        'api_type': 'azure',
+        'api_version': '2024-03-15',
+    }
+}
+"""
+
+```
+
+Without `env_nested_max_split=1` set, `GENERATION_LLM_API_KEY` would be parsed as `llm.api.key` instead of `llm.api_key`
+and it would raise a `ValidationError`.
 
 Nested environment variables take precedence over the top-level environment variable JSON
 (e.g. in the example above, `SUB_MODEL__V2` trumps `SUB_MODEL`).
