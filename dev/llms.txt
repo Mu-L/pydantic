@@ -12,7 +12,7 @@ Pydantic
 
 [![license](https://img.shields.io/github/license/pydantic/pydantic.svg)](https://github.com/pydantic/pydantic/blob/main/LICENSE)
 
-Documentation for development version: [13c345e](https://github.com/pydantic/pydantic/commit/13c345ed2e71ac0dd9250f746e81374dbf8a0df3).
+Documentation for development version: [d76d942](https://github.com/pydantic/pydantic/commit/d76d942e5fe2ddabf60f58a89b24709277a9feb8).
 
 Pydantic is the most widely used data validation library for Python.
 
@@ -271,6 +271,29 @@ For a more comprehensive list of open-source projects using Pydantic see the
 [list of dependents on github](https://github.com/pydantic/pydantic/network/dependents), or you can find some awesome projects using Pydantic in [awesome-pydantic](https://github.com/Kludex/awesome-pydantic).
 
 
+
+v2.11.0b2 (2025-03-17)
+----------------------
+
+ [GitHub release](https://github.com/pydantic/pydantic/releases/tag/v2.11.0b2)
+
+### What's Changed
+
+#### Packaging
+
+* Bump `pydantic-core` to v2.32.0 by [@Viicos](https://github.com/Viicos) in [#11567](https://github.com/pydantic/pydantic/pull/11567)
+
+#### New Features
+
+* Add experimental support for free threading by [@Viicos](https://github.com/Viicos) in [#11516](https://github.com/pydantic/pydantic/pull/11516)
+
+#### Fixes
+
+* Fix `NotRequired` qualifier not taken into account in stringified annotation by [@Viicos](https://github.com/Viicos) in [#11559](https://github.com/pydantic/pydantic/pull/11559)
+
+### New Contributors
+
+* [@joren485](https://github.com/joren485) made their first contribution in [#11547](https://github.com/pydantic/pydantic/pull/11547)
 
 v2.11.0b1 (2025-03-06)
 ----------------------
